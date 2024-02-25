@@ -25,7 +25,13 @@ app.post('/', async (req, res) => {
           
         const appFirebase = initializeApp(firebaseConfig);
         const firestore = getFirestore(appFirebase);
-
+        // transform the data
+        for (const key in xfdfData) {
+            if (xfdfData.hasOwnProperty(key)) {
+                // Replace 'Choice1' with 'oui' and 'Choice2' with 'no'
+                xfdfData[key] = xfdfData[key].replace('Choice1', 'oui').replace('Choice2', 'no');
+            }
+        }
         // Save data to Firestore
         const docRef = await addDoc(collection(firestore, 'enquetes'), xfdfData);
         console.log('Document written with ID: ', docRef.id);
