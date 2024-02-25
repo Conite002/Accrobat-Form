@@ -1,15 +1,9 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const functions = require('@google-cloud/functions-framework');
 const { initializeApp } = require("firebase/app");
 const { getFirestore, collection, addDoc } = require("firebase/firestore");
 
-const app = express();
 
-// Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// Route to handle POST requests
-app.post('/', async (req, res) => {
+functions.http('getData' ,async (req, res) => {
     try {
         const xfdfData = req.body;
         console.log('req : ', xfdfData);
@@ -44,13 +38,3 @@ app.post('/', async (req, res) => {
     }
 });
 
-// Start the server
-const server = app.listen(3000, () => {
-    console.log('Express server is listening on port 3000.');
-});
-
-// const functions = require('@google-cloud/functions-framework');
-
-// functions.http('helloHttp', (req, res) => {
-//   res.send(`Hello ${req.query.name || req.body.name || 'World'}!`);
-// });
