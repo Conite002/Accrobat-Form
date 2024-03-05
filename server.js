@@ -8,6 +8,10 @@ const app = express();
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+}
+);
 // Route to handle POST requests
 app.post('/', async (req, res) => {
     try {
