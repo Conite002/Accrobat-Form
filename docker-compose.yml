@@ -1,0 +1,14 @@
+version: "3.5"
+services:
+  api:
+    build: .
+    container_name: dce.acrobat.api
+    networks: 
+      - dce
+    ports:
+      - 3000:3000
+    environment:
+      PORT: 3000 
+    #restart: always
+networks:
+  dce:
