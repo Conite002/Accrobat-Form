@@ -16,6 +16,9 @@ Installation
     Exécuter npm install pour installer toutes les dépendances.
     npm install
 
+Execution 
+./start.sh permet de démarrer le projet en passant par docker compose. Il faut s'assurer d'avoir installer docker et docker-compose(V1)
+
 Utilisation
 
     Assurez-vous que toutes les dépendances sont installées.
